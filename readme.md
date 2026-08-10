@@ -1,108 +1,362 @@
+# LLM Training Dynamics Stability Monitor
+
+![Python](https://img.shields.io/badge/python-3.11+-blue.svg)
+
+![Status](https://img.shields.io/badge/status-demo--in--progress-yellow.svg)
+
+
+## 🎯 Project Overview
+
+本项目尝试从随机动力系统视角研究大模型（LLM）训练过程中的稳定性问题。
+
+核心思想是将 SGD/Adam 优化过程视为高维随机演化系统：
+
+\[
+dX_t=b(X_t)dt+\sigma dW_t
+\]
+
+其中：
+
+- \(X_t\)：训练状态变量；
+- \(b(X_t)\)：优化过程中的确定性演化项；
+- \(\sigma dW_t\)：由随机梯度、数据采样等因素引入的随机扰动。
+
+项目目标是构建一个具有数学解释性的 LLM 训练稳定性分析框架，用于识别和预测：
+
+- Loss Spike
+- Gradient Explosion
+- Training Instability
+- Optimization Divergence
+
+
+区别于传统仅依赖经验指标的训练监控方法，本项目引入随机过程理论中的：
+
+- 随机微分方程（Stochastic Differential Equation, SDE）
+- 遍历理论（Ergodic Theory）
+- 占位测度分析（Invariant Measure）
+- 大偏差理论（Large Deviation Theory）
+
+尝试建立可解释的“训练稳定性雷达”。
+
+---
+
+# 📖 Project Motivation
+
+现代大模型训练具有：
+
+- 参数规模巨大；
+- 优化过程高度随机；
+- 训练状态动态变化复杂。
+
+
+传统训练监控方法主要依赖：
+
+- Loss 曲线监测；
+- Gradient Norm；
+- Gradient Clipping；
+- Learning Rate Scheduling。
+
+
+这些方法能够发现异常，但对于以下问题缺少理论解释：
+
+- 为什么训练过程会突然失稳？
+- 系统距离临界状态还有多远？
+- Loss Spike 是否可以提前预测？
+
+
+本项目将 SGD/Adam 优化过程建模为随机动力系统：
+
+\[
+\theta_{k+1}
+=
+\theta_k-\eta\nabla L(\theta_k)+\xi_k
+\]
+
+
+并进一步研究：
+
+- 训练状态的长期统计分布；
+- 随机系统稳定性；
+- 稀有异常事件发生概率。
+
+
+---
+
+# 🛠️ Technical Stack
+
+
+## Programming Language
+
+- Python
+
+
+## Numerical Computing
+
+- NumPy
+- SciPy
+- Pandas
+
+
+## Visualization
+
+- Matplotlib
+- Plotly
+
+
+## Deep Learning Interface
+
+- PyTorch（规划接入）
+
+
+用于获取真实 LLM 训练过程中的：
+
+- Loss
+- Gradient Norm
+- Learning Rate
+- Parameter Statistics
+
+
+## Mathematical Methods
+
+- Euler-Maruyama 数值积分
+- Langevin Dynamics
+- Ergodicity Analysis
+- Invariant Measure Estimation
+- Large Deviation Principle
+
+
+---
+
+# 📂 Project Structure
+
+
+```text
 LLM-Training-Dynamics-SDE
 
-https://img.shields.io/badge/python-3.9+-blue.svg
-
-https://img.shields.io/badge/status-demo--in--progress-yellow.svg
-
-🎯 项目定位：本项目旨在利用随机偏微分方程 (SDE)​ 与随机动力系统理论，为大模型（LLM）训练中的“Loss Spike”、“梯度爆炸”等稀有异常事件提供可解释的数学建模与早期诊断指标。
-
-📖 项目背景 (Motivation)
-
-在大模型分布式训练中，现有工程手段（如 GradNorm、LayerClip）多为“黑盒经验调参”，缺乏对底层动力学的深刻理解。本项目尝试填补这一空白：
-
-视角转换：将 SGD/Adam 优化过程视为高维空间中的带噪声扩散过程。
-
-理论武器：利用遍历理论（Ergodicity）估计训练收敛的混合时间，利用大偏差原理（Large Deviation）计算系统逃逸尖锐极小值（Sharp Minima）的壁垒。
-
-目标：构建一套基于数学理论的“训练稳定性雷达”，提前预警潜在的训练崩溃风险。
-
-🛠️ 技术栈 (Tech Stack)
-
-核心语言：Python
-
-数值计算：NumPy, SciPy, Pandas
-
-可视化：Matplotlib, Plotly (可选)
-
-深度学习框架：PyTorch (预留接口，用于接入真实 LLM 梯度流)
-
-数学工具：欧拉-丸山法 (Euler-Maruyama), Lyapunov 函数分析
-
-📂 目录结构 (Directory Structure)
-
-目前规划如下，随着 Demo 迭代会逐步完善：
-
-text
-
-.
-
-├── README.md          # 项目说明
-
-├── requirements.txt   # 依赖包列表
-
-├── LICENSE            # 开源协议
-
 │
-
-├── 01_baseline_sde/   # 🔹 第一阶段：基准 SDE 模拟
-
-│   ├── ou_process.py  # 模拟 Ornstein-Uhlenbeck 过程（类比简单凸优化）
-
-│   └── visualize.py   # 轨迹可视化
-
+├── README.md
+├── requirements.txt
+├── LICENSE
 │
-
-├── 02_loss_surface/  # 🔸 第二阶段：损失景观中的粒子漫步
-
-│   ├── sgd_trajectory.py # 模拟 SGD 在 2D/3D 损失面上的随机游走
-
-│   └── quasipotential.py # 尝试估计准势垒 (Quasipotential)
-
+├── 01_baseline_sde
 │
+│   ├── double_well.py
+│   │       # 基础亚稳态随机系统模拟
+│   │       # 验证随机跃迁与稀有事件现象
+│   │
+│   └── visualize.py
+│           # SDE轨迹可视化
+│
+│
+├── 02_training_dynamics
+│
+│   ├── langevin_llm.py
+│   │       # 基于Langevin动力学的SGD随机过程模拟
+│   │
+│   ├── training_state.py
+│   │       # 构造LLM训练状态变量
+│   │
+│   ├── state_sde.py
+│   │       # 多维训练状态随机动力系统
+│   │
+│   └── visualize_state.py
+│           # 训练状态演化可视化
+│
+│
+├── 03_stability_analysis
+│
+│   ├── invariant_measure.py
+│   │       # 训练状态经验占位测度估计
+│   │
+│   ├── ergodicity.py
+│   │       # 遍历性与混合性质分析
+│   │
+│   └── large_deviation.py
+│           # 稀有训练异常事件概率分析
+│
+│
+└── 04_llm_demo
+    │
+    ├── data_loader.py
+    │       # 训练日志数据接口
+    │
+    └── stability_monitor.py
+            # LLM训练稳定性监测系统
+```
 
-└── 03_llm_demo/       # 🚀 第三阶段：面向 LLM 的动力学分析 (8月下旬 Demo)
+---
 
-├── data_loader.py
+# 🚀 Quick Start
 
-└── stability_monitor.py
 
-🚀 快速开始 (Quick Start)
+## 1. Clone Repository
 
-确保你的环境安装了 Python 3.9+。
-
-bash
-
-1. 克隆仓库
-
+```bash
 git clone https://github.com/liuke-research/llm-training-dynamics-sde.git
 
 cd llm-training-dynamics-sde
+```
 
-2. 创建虚拟环境 (推荐)
 
-python -m venv venv
+## 2. Create Environment
 
-source venv/bin/activate  # Linux/Mac
 
-venv\Scripts\activate # Windows
-3. 安装依赖 (目前暂无，后续会添加 numpy 等)
+推荐使用 Conda：
 
+```bash
+conda create -n llm-sde python=3.11
+
+conda activate llm-sde
+```
+
+
+## 3. Install Dependencies
+
+
+```bash
 pip install -r requirements.txt
+```
 
-🗓️ Roadmap & Milestones
 
-[x] Step 1 (2026.08.05)：仓库初始化，撰写 README。
+## 4. Run Demo
 
-[ ] Step 2 (2026.08.10)：完成 01_baseline_sde，跑通第一个随机游走动画。
 
-[ ] Step 3 (2026.08.20)：完成 02_loss_surface，展示数学理论如何解释 Loss Spike。
+### 基础随机动力系统
 
-[ ] Step 4 (2026.08.30)：接入 PyTorch，产出第一版针对 LLM 的 Stability Monitor Demo。
+```bash
+python 01_baseline_sde/visualize.py
+```
+## Double Well Stochastic Dynamics
 
-📧 联系我 (Contact)
+Baseline stochastic transition simulation.
 
-姓名：刘珂
+![Double Well SDE](./assets/Figure_1.png)
 
-邮箱：15030368689@163.com
 
-求职意向：LLM 训练稳定性与强化学习动力学
+### Langevin训练动力学模拟
+
+```bash
+python 02_training_dynamics/visualize.py
+```
+## Demo Results
+
+### Langevin Training Dynamics
+
+![Langevin]
+
+## Demo Results
+
+### Langevin Training Dynamics
+
+![Langevin](./assets/Figure_2.png)
+---
+
+# 🗓️ Roadmap
+
+
+## ✅ Step 1 (2026.08)
+
+项目初始化与随机动力系统基础验证：
+
+- GitHub仓库搭建；
+- Euler-Maruyama随机积分实现；
+- Double Well亚稳态系统模拟；
+- 随机跃迁过程可视化。
+
+
+## 🚧 Step 2 (2026.08)
+
+LLM训练动力学建模：
+
+- Langevin SGD动力学模拟；
+- 多维训练状态空间构造；
+- Loss、Gradient、Sharpness等状态变量建模。
+
+
+## 🔜 Step 3
+
+训练稳定性数学分析：
+
+- 训练状态占位测度估计；
+- 遍历性与混合时间分析；
+- 基于大偏差理论的异常事件预测。
+
+
+## 🔜 Step 4
+
+LLM训练稳定性Demo：
+
+- PyTorch训练日志接入；
+- Stability Score计算；
+- Loss Spike提前预警。
+
+
+---
+
+# 📌 Research Pipeline
+
+
+```text
+Training Logs
+
+        ↓
+
+Training State Representation
+
+        ↓
+
+Stochastic Dynamical System
+
+        ↓
+
+Invariant Measure + Ergodicity Analysis
+
+        ↓
+
+Large Deviation Risk Estimation
+
+        ↓
+
+Training Stability Monitor
+```
+
+
+---
+
+# 🎯 Research Direction
+
+
+本项目希望建立一个面向大模型训练稳定性的数学分析框架：
+
+从随机动力系统角度理解：
+
+- 训练收敛；
+- 状态转移；
+- 稀有异常事件；
+- 稳定性风险。
+
+
+长期目标是构建：
+
+一个能够结合训练日志数据，对 LLM 训练过程进行稳定性评估和异常预警的分析工具。
+
+
+---
+
+# 📧 Contact
+
+
+**Name:** 刘珂
+
+
+**Email:** 15030368689@163.com
+
+
+## Research Interests
+
+- LLM Training Stability
+- Reinforcement Learning Dynamics
+- Stochastic Optimization
+- AI System Modeling
+- Stochastic Dynamical Systems
+- Large Language Model Training
