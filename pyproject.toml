@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-training-dynamics-sde"
+version = "0.2.0"
+description = "Causal training telemetry monitor and explicitly scoped stochastic-process research baselines"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "刘珂"}]
+dependencies = ["numpy>=1.24,<3", "pandas>=1.5,<3", "scipy>=1.10,<2", "matplotlib>=3.7,<4"]
+
+[project.optional-dependencies]
+train = ["torch>=2.2,<3"]
+dev = ["pytest>=8,<10"]
+
+[project.scripts]
+llm-sde = "llm_sde.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
