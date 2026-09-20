@@ -1,0 +1,71 @@
+{
+  "config": {
+    "window": 64,
+    "threshold": 0.5,
+    "persistence": 2,
+    "cooldown": 20,
+    "method": "multi_signal"
+  },
+  "metadata": {
+    "run_id": "tiny-transformer-normal-7",
+    "scenario": "normal",
+    "seed": 7,
+    "parameters": 42240,
+    "records": 320,
+    "optimizer_updates_applied": 320,
+    "stopped_for_nonfinite": false,
+    "tokens_processed": 92160,
+    "initial_validation_loss": 3.6530888080596924,
+    "final_validation_loss": 0.004632787313312292,
+    "training_loop_seconds": 1.9751305350000052,
+    "parameter_probe_seconds": 0.2566412639999953,
+    "monitor_seconds": 0.11251664599970468,
+    "jsonl_write_seconds": 0.01929477800007362,
+    "monitor_fraction_of_instrumented_loop": 0.056966688533173014,
+    "all_gradients_finite": true,
+    "data": {
+      "data_kind": "algorithmic_token_sequences",
+      "vocab": 32,
+      "description": "Uniform start tokens and arithmetic next-token transitions modulo vocabulary; one fixed increment (1) per sequence."
+    },
+    "metrics": {
+      "events": 0,
+      "early_hits": 0,
+      "alarms": 0,
+      "post_onset_hits": 0,
+      "healthy_records": 256,
+      "false_healthy_alarms": 0,
+      "lead_steps": [],
+      "early_event_recall": null,
+      "early_alarm_precision": null,
+      "post_onset_detection_recall": null,
+      "false_alerts_per_1000_healthy_records": 0.0,
+      "median_lead_steps": null,
+      "matches": [],
+      "alarm_steps": [],
+      "horizon_steps": 40
+    },
+    "scope": "CPU tiny-model integration experiment; not a large-model or natural-language quality benchmark.",
+    "overhead_caveat": "Component timing inside an instrumented run, NOT paired baseline slowdown. Full parameter snapshots cost O(parameters)."
+  },
+  "metrics": {
+    "events": 0,
+    "early_hits": 0,
+    "alarms": 0,
+    "post_onset_hits": 0,
+    "healthy_records": 256,
+    "false_healthy_alarms": 0,
+    "lead_steps": [],
+    "early_event_recall": null,
+    "early_alarm_precision": null,
+    "post_onset_detection_recall": null,
+    "false_alerts_per_1000_healthy_records": 0.0,
+    "median_lead_steps": null,
+    "matches": [],
+    "alarm_steps": [],
+    "horizon_steps": 40
+  },
+  "records": 320,
+  "alarm_episodes": 0,
+  "warmup_records": 64
+}

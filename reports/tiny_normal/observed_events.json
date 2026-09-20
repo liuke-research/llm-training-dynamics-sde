@@ -1,0 +1,10 @@
+{
+  "events": [],
+  "rule": {
+    "window": 64,
+    "min_rise": 0.7,
+    "ratio": 1.8,
+    "persistence": 2
+  },
+  "note": "Labels derived from measured loss, NOT the intervention schedule or warning time."
+}

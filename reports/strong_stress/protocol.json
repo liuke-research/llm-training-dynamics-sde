@@ -1,0 +1,40 @@
+{
+  "seeds": [
+    31,
+    41,
+    59
+  ],
+  "training_config": {
+    "steps": 320,
+    "batch_size": 12,
+    "context": 24,
+    "vocab": 32,
+    "width": 48,
+    "layers": 2,
+    "heads": 4,
+    "learning_rate": 0.002,
+    "seed": 7,
+    "scenario": "lr_fault",
+    "fault_start": 190,
+    "fault_ramp": 30,
+    "fault_hold": 25,
+    "fault_multiplier": 5000,
+    "clip_norm": 1.0,
+    "threads": 1
+  },
+  "monitor_config": {
+    "window": 64,
+    "threshold": 0.5,
+    "persistence": 2,
+    "cooldown": 20,
+    "method": "multi_signal"
+  },
+  "study_type": "exploratory_integration_stress_test",
+  "selection_disclosure": "Added after 50x LR trials produced no measured loss events. Strong amplitude chosen to exercise the failure path; not a generalization benchmark. No monitor threshold or feature tuning.",
+  "label_rule": {
+    "window": 64,
+    "min_rise": 0.7,
+    "ratio": 1.8,
+    "persistence": 2
+  }
+}

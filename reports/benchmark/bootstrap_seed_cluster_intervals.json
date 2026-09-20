@@ -1,0 +1,97 @@
+{
+  "multi_signal": {
+    "resampling_unit": "seed_cluster_including_all_matched_scenarios",
+    "clusters": 8,
+    "repetitions": 1000,
+    "percentile_95_intervals": {
+      "early_event_recall": [
+        0.6666666666666666,
+        0.6666666666666666
+      ],
+      "early_alarm_precision": [
+        0.34782608695652173,
+        0.4
+      ],
+      "false_alerts_per_1000_healthy_records": [
+        0.5500550055005501,
+        0.6531903190319032
+      ]
+    }
+  },
+  "loss_z": {
+    "resampling_unit": "seed_cluster_including_all_matched_scenarios",
+    "clusters": 8,
+    "repetitions": 1000,
+    "percentile_95_intervals": {
+      "early_event_recall": [
+        0.0,
+        0.0
+      ],
+      "early_alarm_precision": [
+        0.0,
+        0.0
+      ],
+      "false_alerts_per_1000_healthy_records": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "grad_z": {
+    "resampling_unit": "seed_cluster_including_all_matched_scenarios",
+    "clusters": 8,
+    "repetitions": 1000,
+    "percentile_95_intervals": {
+      "early_event_recall": [
+        0.4166666666666667,
+        0.625
+      ],
+      "early_alarm_precision": [
+        0.3055555555555556,
+        0.39473684210526316
+      ],
+      "false_alerts_per_1000_healthy_records": [
+        0.41254125412541254,
+        0.5500550055005501
+      ]
+    }
+  },
+  "ewma_loss": {
+    "resampling_unit": "seed_cluster_including_all_matched_scenarios",
+    "clusters": 8,
+    "repetitions": 1000,
+    "percentile_95_intervals": {
+      "early_event_recall": [
+        0.0,
+        0.0
+      ],
+      "early_alarm_precision": [
+        0.0,
+        0.0
+      ],
+      "false_alerts_per_1000_healthy_records": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "cusum_loss": {
+    "resampling_unit": "seed_cluster_including_all_matched_scenarios",
+    "clusters": 8,
+    "repetitions": 1000,
+    "percentile_95_intervals": {
+      "early_event_recall": [
+        0.0,
+        0.0
+      ],
+      "early_alarm_precision": [
+        0.0,
+        0.0
+      ],
+      "false_alerts_per_1000_healthy_records": [
+        0.0,
+        0.0
+      ]
+    }
+  }
+}

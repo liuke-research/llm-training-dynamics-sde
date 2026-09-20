@@ -1,0 +1,6 @@
+method,threshold,events,early_hits,alarms,post_onset_hits,healthy_records,false_healthy_alarms,runs,early_event_recall,early_alarm_precision,post_onset_detection_recall,false_alerts_per_1000_healthy_records,median_lead_steps
+multi_signal,0.5,24,16,42,8,29088,17,48,0.6666666666666666,0.38095238095238093,0.3333333333333333,0.5844334433443344,31.0
+loss_z,0.9,24,0,24,24,29088,0,48,0.0,0.0,1.0,0.0,
+grad_z,0.5,24,13,36,8,29088,14,48,0.5416666666666666,0.3611111111111111,0.3333333333333333,0.4812981298129813,29.0
+ewma_loss,0.9,24,0,24,24,29088,0,48,0.0,0.0,1.0,0.0,
+cusum_loss,0.9,24,0,24,24,29088,0,48,0.0,0.0,1.0,0.0,

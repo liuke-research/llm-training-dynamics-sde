@@ -1,0 +1,44 @@
+{
+  "all_runs": {
+    "events": 0,
+    "early_hits": 0,
+    "alarms": 3,
+    "post_onset_hits": 0,
+    "healthy_records": 1536,
+    "false_healthy_alarms": 3,
+    "runs": 6,
+    "early_event_recall": null,
+    "early_alarm_precision": 0.0,
+    "post_onset_detection_recall": null,
+    "false_alerts_per_1000_healthy_records": 1.953125,
+    "median_lead_steps": null
+  },
+  "normal": {
+    "events": 0,
+    "early_hits": 0,
+    "alarms": 0,
+    "post_onset_hits": 0,
+    "healthy_records": 768,
+    "false_healthy_alarms": 0,
+    "runs": 3,
+    "early_event_recall": null,
+    "early_alarm_precision": null,
+    "post_onset_detection_recall": null,
+    "false_alerts_per_1000_healthy_records": 0.0,
+    "median_lead_steps": null
+  },
+  "lr_fault": {
+    "events": 0,
+    "early_hits": 0,
+    "alarms": 3,
+    "post_onset_hits": 0,
+    "healthy_records": 768,
+    "false_healthy_alarms": 3,
+    "runs": 3,
+    "early_event_recall": null,
+    "early_alarm_precision": 0.0,
+    "post_onset_detection_recall": null,
+    "false_alerts_per_1000_healthy_records": 3.90625,
+    "median_lead_steps": null
+  }
+}

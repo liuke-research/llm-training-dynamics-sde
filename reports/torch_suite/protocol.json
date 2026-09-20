@@ -1,0 +1,38 @@
+{
+  "seeds": [
+    7,
+    11,
+    23
+  ],
+  "scenarios": [
+    "normal",
+    "lr_fault"
+  ],
+  "monitor_config": {
+    "window": 64,
+    "threshold": 0.5,
+    "persistence": 2,
+    "cooldown": 20,
+    "method": "multi_signal"
+  },
+  "threshold_source": "synthetic development runs ONLY",
+  "training_config": {
+    "steps": 320,
+    "batch_size": 12,
+    "context": 24,
+    "vocab": 32,
+    "width": 48,
+    "layers": 2,
+    "heads": 4,
+    "learning_rate": 0.002,
+    "seed": 7,
+    "scenario": "normal",
+    "fault_start": 190,
+    "fault_ramp": 30,
+    "fault_hold": 25,
+    "fault_multiplier": 50.0,
+    "clip_norm": 1.0,
+    "threads": 1
+  },
+  "limitations": "Same tiny architecture and same algorithmic data distribution in all runs; no natural-language or large-model validation."
+}

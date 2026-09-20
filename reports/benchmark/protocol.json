@@ -1,0 +1,47 @@
+{
+  "development_seeds": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "heldout_seeds": [
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107
+  ],
+  "scenarios": [
+    "normal",
+    "grad_ramp",
+    "lr_ramp",
+    "abrupt_loss",
+    "benign_grad",
+    "benign_lr"
+  ],
+  "steps_per_run": 700,
+  "horizon_steps": 40,
+  "false_alarm_budget_per_1000_healthy_records": 5.0,
+  "threshold_grid": [
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9
+  ],
+  "base_config": {
+    "window": 64,
+    "threshold": 0.7,
+    "persistence": 2,
+    "cooldown": 20,
+    "method": "multi_signal"
+  },
+  "selection": "maximize early recall subject to development false-alarm budget; ties precision then threshold; if infeasible minimize false alarms",
+  "bootstrap_unit": "seed clusters, keeping the six matched scenarios together",
+  "data_kind": "synthetic_telemetry",
+  "independence": "no training weights are fitted; only alert thresholds are selected on development runs"
+}

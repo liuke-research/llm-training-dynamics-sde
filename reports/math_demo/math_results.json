@@ -1,0 +1,163 @@
+{
+  "seed": 2026,
+  "ou": {
+    "theta": 1.0,
+    "sigma": 0.5,
+    "dt": 0.05,
+    "scheme": "exact",
+    "theoretical_stationary_mean": 0.0,
+    "theoretical_stationary_variance": 0.125,
+    "theoretical_lag1_correlation": 0.951229424500714,
+    "empirical": {
+      "mean": 0.00031055504303615733,
+      "variance": 0.11774270379991635,
+      "lag1_autocorrelation": 0.9483437440950042,
+      "first_half_mean": 0.011652243770862408,
+      "second_half_mean": -0.011030629632137858,
+      "interpretation": "Empirical diagnostics only; not a Harris drift/minorization proof or certified mixing-time estimate."
+    }
+  },
+  "double_well": {
+    "sigma": 0.7,
+    "dt": 0.005,
+    "scheme": "tamed",
+    "empirical": {
+      "mean": 0.41453715584635836,
+      "variance": 0.6490242924163211,
+      "lag1_autocorrelation": 0.998105718688953,
+      "first_half_mean": 0.2953097438668278,
+      "second_half_mean": 0.533755736819891,
+      "interpretation": "Empirical diagnostics only; not a Harris drift/minorization proof or certified mixing-time estimate."
+    }
+  },
+  "finite_chain": {
+    "states": 8,
+    "transition_matrix": [
+      [
+        0.7897429825796459,
+        0.18975834218644,
+        0.019842692027084104,
+        0.0003231917262918069,
+        0.0003231917262918069,
+        3.199918082097098e-06,
+        3.199918082097098e-06,
+        3.199918082097098e-06
+      ],
+      [
+        0.19487821111779538,
+        0.516149986560344,
+        0.23903708065073534,
+        0.04352208583460263,
+        0.006403036082276294,
+        3.1999180820970986e-06,
+        3.1999180820970986e-06,
+        3.1999180820970986e-06
+      ],
+      [
+        0.014722823095728749,
+        0.2409570314999936,
+        0.42111241952206024,
+        0.24223699873283244,
+        0.07328132399810565,
+        0.0076830033151151335,
+        3.1999180820970986e-06,
+        3.1999180820970986e-06
+      ],
+      [
+        0.0006433894138434355,
+        0.04705705359657883,
+        0.2416743489283245,
+        0.38987798007733476,
+        0.24263463163555352,
+        0.07202440398453304,
+        0.006084991421474483,
+        3.2009423574300276e-06
+      ],
+      [
+        3.1999180820970986e-06,
+        0.0048030770412277445,
+        0.07424129942273477,
+        0.24543691681492955,
+        0.38495334519436303,
+        0.23359721991117027,
+        0.05600176635478132,
+        0.0009631753427112265
+      ],
+      [
+        3.1999180820970986e-06,
+        0.0012831671509209363,
+        0.004163093424808325,
+        0.0716813649570571,
+        0.24191700692462273,
+        0.41567255878249515,
+        0.24223699873283244,
+        0.023042610109181207
+      ],
+      [
+        3.1999180820970986e-06,
+        3.1999180820970986e-06,
+        3.1999180820970986e-06,
+        0.006723027890486004,
+        0.05056190561521625,
+        0.25151676117091404,
+        0.49471053541029353,
+        0.19647817015884395
+      ],
+      [
+        3.199918082097098e-06,
+        3.199918082097098e-06,
+        3.199918082097098e-06,
+        0.0003231917262918069,
+        3.199918082097098e-06,
+        0.019522700218874395,
+        0.20063806366557013,
+        0.7795032447169352
+      ]
+    ],
+    "stationary_distribution_of_fitted_chain": [
+      0.12508800466735887,
+      0.12508806898899807,
+      0.12508646465556778,
+      0.1250671257537465,
+      0.12502118652705013,
+      0.12495053233797017,
+      0.12484331028169524,
+      0.12485530678761331
+    ],
+    "empirical_occupancy_of_calibration_window": [
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125,
+      0.125
+    ],
+    "absolute_spectral_gap_of_fitted_chain": 0.06930415730001904,
+    "pseudocount": 0.01,
+    "raw_row_transition_counts": [
+      3125.0,
+      3125.0,
+      3125.0,
+      3124.0,
+      3125.0,
+      3125.0,
+      3125.0,
+      3125.0
+    ],
+    "warning": "Positive pseudocount enforces irreducibility of the fitted chain; this is NOT evidence that the underlying process satisfies Harris conditions.",
+    "heldout_vs_calibration_JS_divergence": 0.00024218371487250698,
+    "heldout_transition_logloss": 1.1609991211061852
+  },
+  "scgf_at_zero": 2.2204460492503128e-16,
+  "scalar_occupation_rate_at_half": {
+    "a": 0.5,
+    "rate_grid_lower_approximation": 0.007454273113200682,
+    "maximizing_tilt": 0.05000000000000071,
+    "optimum_at_grid_boundary": false,
+    "interpretation": "Asymptotic scalar-observable rate of the fitted finite chain; not a calibrated LLM failure probability."
+  },
+  "fitted_chain_probability_at_least_15_risky_visits_in_30_steps": 0.21003097429620965,
+  "risk_definition": "Risky here means the highest two of eight OU calibration bins. It does not mean a training failure."
+}

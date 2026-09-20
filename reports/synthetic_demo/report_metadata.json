@@ -1,0 +1,56 @@
+{
+  "config": {
+    "window": 64,
+    "threshold": 0.7,
+    "persistence": 2,
+    "cooldown": 20,
+    "method": "multi_signal"
+  },
+  "metadata": {
+    "run_id": "synthetic-grad_ramp-42",
+    "data_kind": "synthetic_telemetry",
+    "scenario": "grad_ramp",
+    "seed": 42,
+    "steps": 700,
+    "events": [
+      {
+        "onset": 389,
+        "end": 408,
+        "kind": "injected_loss_spike"
+      }
+    ],
+    "precursor_start": 354,
+    "warning": "The generator intentionally includes obvious precursors AND harmless lookalikes; no claim of LLM realism."
+  },
+  "metrics": {
+    "events": 1,
+    "early_hits": 1,
+    "alarms": 2,
+    "post_onset_hits": 1,
+    "healthy_records": 576,
+    "false_healthy_alarms": 0,
+    "lead_steps": [
+      25
+    ],
+    "early_event_recall": 1.0,
+    "early_alarm_precision": 0.5,
+    "post_onset_detection_recall": 1.0,
+    "false_alerts_per_1000_healthy_records": 0.0,
+    "median_lead_steps": 25.0,
+    "matches": [
+      {
+        "onset": 389,
+        "alarm_step": 364,
+        "lead_steps": 25
+      }
+    ],
+    "alarm_steps": [
+      364,
+      390
+    ],
+    "horizon_steps": 40
+  },
+  "records": 700,
+  "alarm_episodes": 2,
+  "warmup_records": 64
+}

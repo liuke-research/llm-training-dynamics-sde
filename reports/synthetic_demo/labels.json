@@ -1,0 +1,16 @@
+{
+  "run_id": "synthetic-grad_ramp-42",
+  "data_kind": "synthetic_telemetry",
+  "scenario": "grad_ramp",
+  "seed": 42,
+  "steps": 700,
+  "events": [
+    {
+      "onset": 389,
+      "end": 408,
+      "kind": "injected_loss_spike"
+    }
+  ],
+  "precursor_start": 354,
+  "warning": "The generator intentionally includes obvious precursors AND harmless lookalikes; no claim of LLM realism."
+}

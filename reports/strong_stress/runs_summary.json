@@ -1,0 +1,161 @@
+[
+  {
+    "run_id": "tiny-transformer-lr_fault-31",
+    "scenario": "lr_fault",
+    "seed": 31,
+    "parameters": 42240,
+    "records": 221,
+    "optimizer_updates_applied": 220,
+    "stopped_for_nonfinite": true,
+    "tokens_processed": 63648,
+    "initial_validation_loss": 3.708435535430908,
+    "final_validation_loss": 4507.25634765625,
+    "training_loop_seconds": 1.4387187309999945,
+    "parameter_probe_seconds": 0.18661425199999826,
+    "monitor_seconds": 0.07137593100009099,
+    "jsonl_write_seconds": 0.01562222400005453,
+    "monitor_fraction_of_instrumented_loop": 0.04961076092370084,
+    "all_gradients_finite": false,
+    "data": {
+      "data_kind": "algorithmic_token_sequences",
+      "vocab": 32,
+      "description": "Uniform start tokens and arithmetic next-token transitions modulo vocabulary; one fixed increment (1) per sequence."
+    },
+    "metrics": {
+      "events": 1,
+      "early_hits": 1,
+      "alarms": 2,
+      "post_onset_hits": 1,
+      "healthy_records": 111,
+      "false_healthy_alarms": 0,
+      "lead_steps": [
+        21
+      ],
+      "early_event_recall": 1.0,
+      "early_alarm_precision": 0.5,
+      "post_onset_detection_recall": 1.0,
+      "false_alerts_per_1000_healthy_records": 0.0,
+      "median_lead_steps": 21.0,
+      "matches": [
+        {
+          "onset": 215,
+          "alarm_step": 194,
+          "lead_steps": 21
+        }
+      ],
+      "alarm_steps": [
+        194,
+        220
+      ],
+      "horizon_steps": 40
+    },
+    "scope": "CPU tiny-model integration experiment; not a large-model or natural-language quality benchmark.",
+    "overhead_caveat": "Component timing inside an instrumented run, NOT paired baseline slowdown. Full parameter snapshots cost O(parameters)."
+  },
+  {
+    "run_id": "tiny-transformer-lr_fault-41",
+    "scenario": "lr_fault",
+    "seed": 41,
+    "parameters": 42240,
+    "records": 221,
+    "optimizer_updates_applied": 220,
+    "stopped_for_nonfinite": true,
+    "tokens_processed": 63648,
+    "initial_validation_loss": 3.6030032634735107,
+    "final_validation_loss": 2732.049072265625,
+    "training_loop_seconds": 1.3816621710000163,
+    "parameter_probe_seconds": 0.18392537200008974,
+    "monitor_seconds": 0.06635026399993649,
+    "jsonl_write_seconds": 0.013639217000218196,
+    "monitor_fraction_of_instrumented_loop": 0.04802206023482111,
+    "all_gradients_finite": false,
+    "data": {
+      "data_kind": "algorithmic_token_sequences",
+      "vocab": 32,
+      "description": "Uniform start tokens and arithmetic next-token transitions modulo vocabulary; one fixed increment (1) per sequence."
+    },
+    "metrics": {
+      "events": 1,
+      "early_hits": 1,
+      "alarms": 2,
+      "post_onset_hits": 1,
+      "healthy_records": 111,
+      "false_healthy_alarms": 0,
+      "lead_steps": [
+        21
+      ],
+      "early_event_recall": 1.0,
+      "early_alarm_precision": 0.5,
+      "post_onset_detection_recall": 1.0,
+      "false_alerts_per_1000_healthy_records": 0.0,
+      "median_lead_steps": 21.0,
+      "matches": [
+        {
+          "onset": 215,
+          "alarm_step": 194,
+          "lead_steps": 21
+        }
+      ],
+      "alarm_steps": [
+        194,
+        220
+      ],
+      "horizon_steps": 40
+    },
+    "scope": "CPU tiny-model integration experiment; not a large-model or natural-language quality benchmark.",
+    "overhead_caveat": "Component timing inside an instrumented run, NOT paired baseline slowdown. Full parameter snapshots cost O(parameters)."
+  },
+  {
+    "run_id": "tiny-transformer-lr_fault-59",
+    "scenario": "lr_fault",
+    "seed": 59,
+    "parameters": 42240,
+    "records": 222,
+    "optimizer_updates_applied": 221,
+    "stopped_for_nonfinite": true,
+    "tokens_processed": 63936,
+    "initial_validation_loss": 3.5861058235168457,
+    "final_validation_loss": 3023.7744140625,
+    "training_loop_seconds": 1.4037554959999738,
+    "parameter_probe_seconds": 0.18322122599954582,
+    "monitor_seconds": 0.07132014899946171,
+    "jsonl_write_seconds": 0.014378635000525719,
+    "monitor_fraction_of_instrumented_loop": 0.050806674811026374,
+    "all_gradients_finite": false,
+    "data": {
+      "data_kind": "algorithmic_token_sequences",
+      "vocab": 32,
+      "description": "Uniform start tokens and arithmetic next-token transitions modulo vocabulary; one fixed increment (1) per sequence."
+    },
+    "metrics": {
+      "events": 1,
+      "early_hits": 1,
+      "alarms": 2,
+      "post_onset_hits": 1,
+      "healthy_records": 111,
+      "false_healthy_alarms": 0,
+      "lead_steps": [
+        21
+      ],
+      "early_event_recall": 1.0,
+      "early_alarm_precision": 0.5,
+      "post_onset_detection_recall": 1.0,
+      "false_alerts_per_1000_healthy_records": 0.0,
+      "median_lead_steps": 21.0,
+      "matches": [
+        {
+          "onset": 215,
+          "alarm_step": 194,
+          "lead_steps": 21
+        }
+      ],
+      "alarm_steps": [
+        194,
+        221
+      ],
+      "horizon_steps": 40
+    },
+    "scope": "CPU tiny-model integration experiment; not a large-model or natural-language quality benchmark.",
+    "overhead_caveat": "Component timing inside an instrumented run, NOT paired baseline slowdown. Full parameter snapshots cost O(parameters)."
+  }
+]

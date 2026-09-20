@@ -1,0 +1,14 @@
+{
+  "events": 3,
+  "early_hits": 3,
+  "alarms": 6,
+  "post_onset_hits": 3,
+  "healthy_records": 333,
+  "false_healthy_alarms": 0,
+  "runs": 3,
+  "early_event_recall": 1.0,
+  "early_alarm_precision": 0.5,
+  "post_onset_detection_recall": 1.0,
+  "false_alerts_per_1000_healthy_records": 0.0,
+  "median_lead_steps": 21.0
+}

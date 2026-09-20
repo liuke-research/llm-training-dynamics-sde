@@ -1,0 +1,37 @@
+{
+  "multi_signal": {
+    "window": 64,
+    "threshold": 0.5,
+    "persistence": 2,
+    "cooldown": 20,
+    "method": "multi_signal"
+  },
+  "loss_z": {
+    "window": 64,
+    "threshold": 0.9,
+    "persistence": 2,
+    "cooldown": 20,
+    "method": "loss_z"
+  },
+  "grad_z": {
+    "window": 64,
+    "threshold": 0.5,
+    "persistence": 2,
+    "cooldown": 20,
+    "method": "grad_z"
+  },
+  "ewma_loss": {
+    "window": 64,
+    "threshold": 0.9,
+    "persistence": 2,
+    "cooldown": 20,
+    "method": "ewma_loss"
+  },
+  "cusum_loss": {
+    "window": 64,
+    "threshold": 0.9,
+    "persistence": 2,
+    "cooldown": 20,
+    "method": "cusum_loss"
+  }
+}

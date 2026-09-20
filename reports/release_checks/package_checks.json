@@ -1,0 +1,47 @@
+{
+  "bundle": "llm-training-dynamics-sde GitHub repository",
+  "package_version": "0.2.0",
+  "original_core_python_modules_unchanged": 13,
+  "local_pytest": {
+    "passed": 89,
+    "failed": 0,
+    "skipped": 0
+  },
+  "fresh_synthetic_benchmark": {
+    "development_runs": 24,
+    "heldout_runs": 48,
+    "steps_per_run": 700
+  },
+  "fresh_actual_tiny_training": {
+    "normal_runs": 3,
+    "mild_lr_intervention_runs": 3,
+    "strong_lr_intervention_runs": 3
+  },
+  "checks": {
+    "python_syntax": true,
+    "editable_install": true,
+    "wheel_build": true,
+    "isolated_wheel_import": true,
+    "isolated_wheel_cli_demo": true,
+    "streaming_example": true,
+    "streaming_jsonl_replay": true,
+    "math_demo": true,
+    "markov_proxy_example": true,
+    "github_workflow_yaml_structure": true,
+    "relative_markdown_links": true,
+    "common_embedded_credential_patterns_absent": true,
+    "clean_extraction_pytest": true
+  },
+  "github_remote_ci_executed": false,
+  "grpo_ppo_implementation_included": false,
+  "model_checkpoint_binaries_included": false,
+  "note": "Bundled evidence is local validation, not production or large-language-model post-training evidence.",
+  "relative_markdown_links_checked": 55,
+  "files_including_manifest": 78,
+  "clean_extraction_pytest": {
+    "passed": 89,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 5.56
+  }
+}
