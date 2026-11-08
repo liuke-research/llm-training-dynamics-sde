@@ -1,0 +1,7 @@
+{
+  "window": 64,
+  "threshold": 0.5,
+  "persistence": 2,
+  "cooldown": 20,
+  "method": "multi_signal"
+}
