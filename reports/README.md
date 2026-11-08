@@ -1,21 +1,21 @@
 # Evidence index
 
-These are fresh local results from the repository packaging run, not production benchmarks.
+只保留两个可直接复核的示例报告和一份九条运行的合表；其余逐运行产物没有随仓库保留，
+可用根 README 里的命令在本地重新生成。
 
-- [Core tests and environment](release_checks/)
-- [Synthetic development / held-out comparison](benchmark/)
 - [Synthetic end-to-end example](synthetic_demo/report.html)
-- [Six tiny Transformer runs](torch_suite/runs_summary.json)
-- [Three exploratory stress runs](strong_stress/runs_summary.json)
-- [All nine measured telemetry streams](all_tiny_training_telemetry.csv)
 - [One complete normal-run report](tiny_normal/report.html)
-- [Known-process / finite-chain results](math_demo/math_results.json)
-- [Monitor-only latency](latency/monitor_latency.json)
+- [All nine measured telemetry streams](all_tiny_training_telemetry.csv)
 
 The combined telemetry CSV is evidence, not a single-run CLI input. Split by
 `evidence_suite` and `evidence_run` before loading an individual run.
 
-The bundle includes summaries and selected full traces. Reproduction commands in
-the root README regenerate all per-run logs and checkpoints under `runs/`.
+Reproduction commands in the root README regenerate everything else under `runs/`:
+`python -m llm_sde benchmark` (development threshold search + held-out comparison),
+`examples/run_torch_suite.py` (six tiny Transformer runs),
+`examples/run_stress_suite.py` (three exploratory stress runs),
+`python -m llm_sde math-demo` (known-process / finite-chain results),
+`python -m llm_sde latency` (monitor-only latency).
+
 Model checkpoint binaries, virtual environments, caches and legacy archives are not
 included. HTML reports embed their own images and can be opened locally.
