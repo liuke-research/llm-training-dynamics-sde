@@ -4,6 +4,8 @@
 
 Python · NumPy / SciPy / Pandas · PyTorch（可选） · Version 0.2.0
 
+[![Tests](https://github.com/liuke-research/llm-training-dynamics-sde/actions/workflows/tests.yml/badge.svg)](https://github.com/liuke-research/llm-training-dynamics-sde/actions/workflows/tests.yml)
+
 将训练日志转换为因果滑动窗口特征、异常分数与可解释告警，并用独立事件标签评估提前预警和事后检测。项目同时提供 OU、双阱与有限状态马尔可夫链数值实验，用于研究训练状态分析方法的适用边界。
 
 > **当前交付：日志监控 + CPU 小型 Transformer 实际训练 + 随机过程数值实验。**
