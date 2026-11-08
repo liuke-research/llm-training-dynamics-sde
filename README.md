@@ -11,7 +11,7 @@ Python · NumPy / SciPy / Pandas · PyTorch（可选） · Version 0.2.0
 > **当前交付：日志监控 + CPU 小型 Transformer 实际训练 + 随机过程数值实验。**
 > 真实预训练大模型的 GRPO/PPO 后训练、TRL/verl 原生日志适配和 RL 专用指标监控尚未实现，见 [后训练扩展路线](docs/ROADMAP.md)。Risk Score 是启发式异常分数，不是故障概率。
 
-[快速运行](#快速运行) · [输入接口](docs/INTEGRATION.md) · [实测验证](docs/VALIDATION.md) · [模型说明](docs/MODEL_CARD.md) · [上传 GitHub](docs/UPLOAD_GITHUB.md) · [早期尝试（已归档）](legacy/01_baseline_sde/README.md)
+[快速运行](#快速运行) · [输入接口](docs/INTEGRATION.md) · [实测验证](docs/VALIDATION.md) · [模型说明](docs/MODEL_CARD.md) · [许可证](LICENSE) · [早期尝试（已归档）](legacy/01_baseline_sde/README.md)
 
 ## 输入、处理与输出
 
@@ -176,7 +176,7 @@ llm-training-dynamics-sde/
 └── legacy/01_baseline_sde/    # 早期 SDE 尝试（已归档，仅作说明）
 ```
 
-`reports/` 只保存 `synthetic_demo` 与 `tiny_normal` 两个可复核示例报告；全量逐运行产物和检查点可用上述命令生成到被 Git 忽略的 `runs/`。仓库不包含模型权重、原始旧工程压缩包、私人简历或访问令牌。
+`reports/` 只保存 `synthetic_demo` 与 `tiny_normal` 两个可复核示例报告；全量逐运行产物和检查点可用上述命令生成到被 Git 忽略的 `runs/`。仓库不包含模型权重、训练日志与运行缓存。
 
 ## 早期尝试（已归档）
 
@@ -188,11 +188,9 @@ llm-training-dynamics-sde/
 
 当前仓库没有 `GRPOTrainer`、PPO 实现、奖励模型训练或 DDP/FSDP 原生适配。明确的验收项见 [ROADMAP](docs/ROADMAP.md)。
 
-## 发布与联系
+## 许可与联系
 
-上传前先解压，使 `README.md`、`pyproject.toml` 和 `src/` 位于仓库根目录；不要仅提交压缩包本身。详见 [上传说明](docs/UPLOAD_GITHUB.md)。
-
-许可证尚待项目负责人选择，此次打包没有代为添加 MIT / Apache 授权。所有新增实现和实验应由维护者复核、理解后对外使用。
+本项目以 MIT 许可证发布，见 [LICENSE](LICENSE)。
 
 **Name:** 刘珂  
 **Email:** 15030368689@163.com
