@@ -9,7 +9,7 @@ Python · NumPy / SciPy / Pandas · PyTorch（可选） · Version 0.2.0
 > **当前交付：日志监控 + CPU 小型 Transformer 实际训练 + 随机过程数值实验。**
 > 真实预训练大模型的 GRPO/PPO 后训练、TRL/verl 原生日志适配和 RL 专用指标监控尚未实现，见 [后训练扩展路线](docs/ROADMAP.md)。Risk Score 是启发式异常分数，不是故障概率。
 
-[快速运行](#快速运行) · [输入接口](docs/INTEGRATION.md) · [实测验证](docs/VALIDATION.md) · [模型说明](docs/MODEL_CARD.md) · [上传 GitHub](docs/UPLOAD_GITHUB.md)
+[快速运行](#快速运行) · [输入接口](docs/INTEGRATION.md) · [实测验证](docs/VALIDATION.md) · [模型说明](docs/MODEL_CARD.md) · [上传 GitHub](docs/UPLOAD_GITHUB.md) · [早期尝试（已归档）](legacy/01_baseline_sde/README.md)
 
 ## 输入、处理与输出
 
@@ -66,7 +66,7 @@ python -m llm_sde train-demo --scenario normal --out runs/tiny_normal
 python -m llm_sde train-demo --corpus my_corpus.txt --out runs/local_corpus
 ```
 
-**版本口径：**打包实测为 Linux / Python 3.13.5 / PyTorch 2.10.0+cpu；准确环境见 [environment.json](reports/release_checks/environment.json)。`pyproject.toml` 声明 Python ≥3.10，其他解释器和操作系统未在本次本地验证。CI 配置用于后续检查，不代表已通过跨平台测试。
+**版本口径：**打包实测为 Linux / Python 3.13.5 / PyTorch 2.10.0+cpu；更完整的版本记录未随仓库保留。`pyproject.toml` 声明 Python ≥3.10，其他解释器和操作系统未在本次本地验证。CI 配置用于后续检查，不代表已通过跨平台测试。
 
 ## 接入自己的日志
 
@@ -115,12 +115,12 @@ python examples/streaming_monitor.py --out runs/streaming_example
 
 | 实验 | 实测结果 | 证据 |
 |---|---|---|
-| 自动测试 | 89 passed | [测试记录](reports/release_checks/pytest.txt) |
-| 合成留出集 | 48 条运行，24 个事件；多指标提前命中 16 个 | [基线比较](reports/benchmark/heldout_summary.csv) |
-| 提前告警质量 | 提前召回率 66.7%，提前告警精确率 38.1% | [分场景结果](reports/benchmark/heldout_by_scenario.csv) |
-| 正常小模型训练 | 3 次正常运行，无告警 | [六次训练汇总](reports/torch_suite/runs_summary.json) |
+| 自动测试 | 89 passed | 可用 `python -m pytest -q` 复现（日志未随仓库保留） |
+| 合成留出集 | 48 条运行，24 个事件；多指标提前命中 16 个 | 可用 `python -m llm_sde benchmark` 复现（逐运行产物未随仓库保留） |
+| 提前告警质量 | 提前召回率 66.7%，提前告警精确率 38.1% | 同上，见 benchmark 的分场景输出 |
+| 正常小模型训练 | 3 次正常运行，无告警 | 可用 `examples/run_torch_suite.py` 复现 |
 | 50× 学习率干预 | 3 次均无所定义的损失事件，但各产生一次告警 | 相对于该事件定义，这些是误报 |
-| 5000× 强干预 | 3 次均出现损失事件，各提前 21 步告警 | [探索性压力测试](reports/strong_stress/aggregate_metrics.json)，不是自然故障预测能力 |
+| 5000× 强干预 | 3 次均出现损失事件，各提前 21 步告警 | 可用 `examples/run_stress_suite.py` 复现，不是自然故障预测能力 |
 
 已观察到无害扰动误报；无前兆突发异常没有被提前预测。不用“预测准确率”代替召回率，不把未产生故障的异常指标告警计为成功预警。
 
@@ -154,11 +154,6 @@ llm-training-dynamics-sde/
 ├── README.md
 ├── pyproject.toml
 ├── requirements.txt
-├── requirements-core-tested.txt
-├── .gitignore
-├── .gitattributes
-├── .github/workflows/tests.yml
-├── configs/
 ├── src/llm_sde/
 │   ├── io.py                  # 日志 schema 与 CSV/JSONL
 │   ├── features.py            # 因果历史特征
@@ -174,12 +169,15 @@ llm-training-dynamics-sde/
 ├── examples/                  # 流式、训练套件、数学研究示例
 ├── tests/                     # 89 项测试
 ├── docs/                      # 接入、评估、模型卡、数学边界、路线图
-├── reports/                   # 实测摘要与可复核示例日志
-├── REPOSITORY_TREE.txt
-└── MANIFEST.sha256
+├── reports/                   # 两个可复核示例：synthetic_demo、tiny_normal
+└── legacy/01_baseline_sde/    # 早期 SDE 尝试（已归档，仅作说明）
 ```
 
-完整目录见 [REPOSITORY_TREE.txt](REPOSITORY_TREE.txt)。`reports/` 保存此次实测摘要与精选日志；全量逐运行产物和检查点可用上述命令生成到被 Git 忽略的 `runs/`。仓库不包含模型权重、原始旧工程压缩包、私人简历或访问令牌。
+`reports/` 只保存 `synthetic_demo` 与 `tiny_normal` 两个可复核示例报告；全量逐运行产物和检查点可用上述命令生成到被 Git 忽略的 `runs/`。仓库不包含模型权重、原始旧工程压缩包、私人简历或访问令牌。
+
+## 早期尝试（已归档）
+
+`legacy/01_baseline_sde/` 保留了项目最初的 SDE 数值原型（双阱采样、朗之万近似、OU 占位文件）。它只有数值演示、不接真实训练日志、没有事件标签、也无法评估，属于走过但没走通的一条路；可验证的部分后来换成 `src/llm_sde/` 的 telemetry 生成器、真实小模型训练和事件级监控评估。完整说明见 [legacy/01_baseline_sde/README.md](legacy/01_baseline_sde/README.md)。
 
 ## 后续：强化学习后训练
 
