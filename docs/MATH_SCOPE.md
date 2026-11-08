@@ -26,4 +26,4 @@ OU 模型为 `dX = theta * (mu - X) dt + sigma dW`。代码提供精确离散转
 
 上述模块目前不参与在线 Risk Score。状态投影是否足够、训练阶段是否近似平稳、不同窗口是否一致，均需要另行验证。经验 JS 差异是漂移描述量，不自动具有显著性检验解释。
 
-实测例子见 [math_results.json](../reports/math_demo/math_results.json)；数学相关单元测试见 [test_math.py](../tests/test_math.py)。
+实测例子可用 `python -m llm_sde math-demo` 在本地生成 `math_results.json`（未随仓库保留）；数学相关单元测试见 [test_math.py](../tests/test_math.py)。
