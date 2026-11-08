@@ -154,6 +154,7 @@ llm-training-dynamics-sde/
 ├── README.md
 ├── pyproject.toml
 ├── requirements.txt
+├── configs/                   # 监控器配置：default(0.7) 与 synthetic 标定(0.5)
 ├── src/llm_sde/
 │   ├── io.py                  # 日志 schema 与 CSV/JSONL
 │   ├── features.py            # 因果历史特征
